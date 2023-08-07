@@ -10,7 +10,8 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
 	<util:map id="signalConfigMap" scope="prototype"
 		map-class="java.util.HashMap" key-type="java.lang.Integer">
 		<entry key="1" value-ref="signal1" />
-
+        <entry key="2" value-ref="signal2" />
+		<entry key="3" value-ref="signal3" />
 	</util:map>
 
 
@@ -36,4 +37,50 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
 			</array>
 		</property>
 	</bean>
+	<bean id="signal2"
+		class="com.zenTrading.component.SignalConfig">
+		<property name="params">
+			<array value-type="java.lang.Integer">
+				<value>1</value>
+			</array>
+		</property>
+		<property name="values">
+			<array value-type="java.lang.Integer">
+				<value>80</value>
+			</array>
+		</property>
+		<property name="methods">
+			<array value-type="java.lang.String">
+				<value>reverse</value>
+				<value>performCalc</value>
+				<value>submitToMarket</value>
+			</array>
+		</property>
+	</bean>
+
+
+	<bean id="signal3"
+		class="com.zenTrading.component.SignalConfig">
+		<property name="params">
+			<array value-type="java.lang.Integer">
+				<value>1</value>
+				<value>2</value>
+			</array>
+		</property>
+		<property name="values">
+			<array value-type="java.lang.Integer">
+				<value>90</value>
+				<value>15</value>
+			</array>
+		</property>
+		<property name="methods">
+			<array value-type="java.lang.String">
+				<value>setAlgoParam</value>
+				<value>setAlgoParam</value>
+				<value>performCalc</value>
+				<value>submitToMarket</value>
+			</array>
+		</property>
+	</bean>
+	
 	</beans>
